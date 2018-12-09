@@ -1,0 +1,29 @@
+<div class="col-md-6">
+  <h2 class="text-center">Cadastrar Cliente</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input required type="name" formControlName="name" placeholder="Nome" name="name" class="form-control" id="name">
+    </div>
+
+    <div class="form-group">
+      <label for="creditLimit">Limite de crédito:</label>
+      <input required formControlName="creditLimit" placeholder="Limite de crédito" name="creditLimit" class="form-control" id="creditLimit">
+    </div>
+
+    <div class="form-group">
+      <label for="chargesRate">Taxa de juros: </label>
+      <br/>
+      <select name="chargesRate" formControlName="chargesRate"required>
+        <option *ngFor="let riskDTO of risks" [value]="riskDTO.chargesRate">{{ riskDTO.name }}</option>
+      </select>
+    </div>
+
+
+
+    <button [routerLink]="['/']"  class="btn btn-success">Cadastrar</button>
+
+  </form>
+
+
+</div>
